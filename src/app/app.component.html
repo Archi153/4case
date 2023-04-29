@@ -1,0 +1,121 @@
+<!-- <mat-sidenav-container *ngIf="!(responsiveService.isMobile | async)" fullscreen>
+  <mat-sidenav #sidenav id="sidenav" mode="side" [opened]="authService.isAuthorized">
+    <div class="sidenav-inner">
+      <div class="menu-toggle-button">
+        <mat-icon (click)="toggleSidenav()">menu</mat-icon>
+      </div>
+      <mat-nav-list class="nav-drawer">
+        <a mat-list-item routerLink="" routerLinkActive="mat-mdc-list-item-active"
+          [routerLinkActiveOptions]="{exact:true}" [@onSideNavChange]="isMenuOpened ? 'open' : 'close'">
+          <mat-icon>home</mat-icon>
+          <span>Главная</span>
+        </a>
+        <a mat-list-item routerLink="page-2" routerLinkActive="mat-mdc-list-item-active"
+          [routerLinkActiveOptions]="{exact:true}" [@onSideNavChange]="isMenuOpened ? 'open' : 'close'">
+          <mat-icon>favorite</mat-icon>
+          <span>Избранное</span>
+        </a>
+        <a mat-list-item routerLink="books" routerLinkActive="mat-mdc-list-item-active"
+          [routerLinkActiveOptions]="{exact:true}" [@onSideNavChange]="isMenuOpened ? 'open' : 'close'">
+          <mat-icon>book</mat-icon>
+          <span>Книги</span>
+        </a>
+      </mat-nav-list>
+      <mat-action-list>
+        <div class="user-icon">
+          <span>{{authService.userName}}</span>
+        </div>
+        <mat-list-item (click)="authService.logout()" [@onSideNavChange]="isMenuOpened ? 'open' : 'close'">
+          <mat-icon>logout</mat-icon>
+          <span>Выйти</span>
+        </mat-list-item>
+      </mat-action-list>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content [@onMainContentChange]="!authService.isAuthorized ? 'full' : isMenuOpened ? 'open': 'close'">
+    <div class="root-container">
+      <div class="responsive-container">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+<mat-sidenav-container *ngIf="responsiveService.isMobile | async" fullscreen>
+  <mat-sidenav-content class="mobile">
+    <mat-toolbar *ngIf="authService.isAuthorized">
+      <div class="user-icon">
+        <span>{{authService.userName}}</span>
+      </div>
+      <button mat-icon-button (click)="authService.logout()" class="logout">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </mat-toolbar>
+    <div *ngIf="!authService.isAuthorized" style="height: 70px;"></div>
+    <div class="root-container">
+      <div class="responsive-container">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <div *ngIf="authService.isAuthorized" class="nav-bar">
+      <a class="link" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <div matRipple class="icon">
+          <mat-icon>home</mat-icon>
+        </div>
+        <span class="label mat-label-medium">Главная</span>
+      </a>
+      <a class="link" routerLink="page-2" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <div matRipple class="icon">
+          <mat-icon>favorite</mat-icon>
+        </div>
+        <span class="label mat-label-medium">Избранное</span>
+      </a>
+      <a class="link" routerLink="books" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <div matRipple class="icon">
+          <mat-icon>book</mat-icon>
+        </div>
+        <span class="label mat-label-medium">Книги</span>
+      </a>
+    </div>
+    <div *ngIf="!authService.isAuthorized" style="height: 70px;"></div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+ -->
+
+<nav>
+  <div  class="nav-bar" id="nav">
+    <a class="link" routerLink="page-1" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+       <span class="label mat-label-medium home">IncHub</span>
+    </a>
+    <a *ngIf="authService.isAuthorized" class="link" routerLink="page-2" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <span class="label mat-label-medium news">News</span>
+    </a>
+    <a *ngIf="authService.isAuthorized" class="link" routerLink="projects" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <span class="label mat-label-medium projects">Projects</span>
+    </a>
+  <!--   <a *ngIf="authService.isAuthorized" class="link" routerLink="books" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <span class="label mat-label-medium">Книги</span>
+    </a> -->
+    <a *ngIf="authService.isAuthorized" class="link" routerLink="contacts" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <span class="label mat-label-medium contacts">Contacts</span>
+    </a>
+    <a *ngIf="!authService.isAuthorized" class="link login registration"  routerLink="auth/register"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <span class="label mat-label-medium registration">Registration</span>
+    </a>
+    <a *ngIf="!authService.isAuthorized" class="link login"  routerLink="auth/login"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <span class="label mat-label-medium login">Login</span>
+    </a>
+    <a *ngIf="authService.isAuthorized" class="link login user "  routerLink="user"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <span class="label mat-label-medium account"><!-- {{User_name}} -->{{authService.userName}}</span>
+      <div class="user_profile">
+        <img src="" alt="">
+      </div>
+      
+    </a>
+  </div>
+
+</nav> 
+<router-outlet></router-outlet>

@@ -1,0 +1,86 @@
+:host {
+  
+  
+  background: linear-gradient(to top right,#49267A, #1E083F) ;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.menu-toggle-button {
+  margin: 4px 0 30px 16px;
+}
+
+.menu-toggle-button .mat-icon {
+  cursor: pointer;
+}
+nav{
+  box-shadow: 0 12px 150px black;
+  background-color: #361665;
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  .nav-bar{
+    padding-inline: 99px;
+    background-color: #361665;
+    width: 100%;
+    
+    align-items: center;
+
+ 
+    a.link.login.registration.ng-tns-c129-0.ng-star-inserted{
+      margin-left: auto;
+    }
+    a.link.login.user.ng-tns-c129-0.ng-star-inserted{
+      margin-left: auto;
+      margin-top: 2px;
+
+    }
+    a{
+      flex-direction: row;
+    }
+    .user_profile{
+      
+      width: 44px;
+      height: 44px;
+      border: 3px solid #ffffff;
+      border-radius: 50%;
+    }
+    .label{
+      font-size: 17px;
+      color: #ffffff;
+
+      &.home{
+        left: 0;
+      }
+      &.news{
+        margin-left: 89px;
+      }
+      &.projects{
+        margin-left: 16px;
+      }
+      &.contacts{
+        margin-left: 16px;
+      }
+      &.registration{
+      
+        margin-right: 17px;
+        color:#3BCC98;
+      }
+      &.account{
+        margin-right: 20px;
+      }
+
+    }
+    .label:after{
+      background-color: #fce38a;
+      transition: all .3s ease;
+    }
+    .label:hover{
+      color: #9c9a9a;
+      transition: all .3s ease;
+    }
+  }
+
+}
